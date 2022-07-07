@@ -33,7 +33,7 @@ $(document).ready(function(){
     searchCity(lastCity);
   }
 });
-
+//search city input
 $("#search-btn").on("click", function() {
   event.preventDefault();
   clearDisplayedWeatherInfo()
@@ -41,7 +41,7 @@ $("#search-btn").on("click", function() {
   var cityName = $("input").val().toUpperCase().trim();
   $("#search-input").val("");
   searchCity(cityName);
-
+//stringify city list
   if (cityName !== ""&& listOfSearchedCities[0] !== cityName) {
     listOfSearchedCities.unshift(cityName);
     localStorage.setItem("searched-cities", JSON.stringify(listOfSearchedCities));
@@ -65,7 +65,7 @@ $(document).on("click", ".list-group-item", function() {
   resetGlobalVariables();
   searchCity(cityName);
 });
-
+//function to display parameters like temperature, humidity, windspeed and UV index
 function displayCurrentWeather() {
   var cardDiv = $("<div class='container border bg-light'>");
   var weatherImage = $("<img>").attr('src', currentWeatherIconUrl);
@@ -75,7 +75,6 @@ function displayCurrentWeather() {
   var humidityEl = $("<p>").text("Humidity: " + humidityValue + "%");
   var windSpeedEl = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
   var uvIndexEl = $("<p>").text("UV Index: ");
-  // var uvIndexValueEl = $("<span>").text(uvIndexValue).css("background-color", getColorCodeForUVIndex(uvIndexValue)).addClass("text-white");
   var uvIndexValueEl = $("<span>").text(uvIndexValue).css("background-color", getColorCodeForUVIndex(uvIndexValue)); 
   uvIndexEl.append(uvIndexValueEl);
   cardDiv.append(cardHeader);
@@ -85,7 +84,7 @@ function displayCurrentWeather() {
   cardDiv.append(uvIndexEl);
   $("#current-weather-conditions").append(cardDiv);
 }
-
+//shows forecast
 function displayDayForeCast() { 
   var imgEl = $("<img>").attr("src", iconurl);  
   var cardEl = $("<div class='card'>").addClass("pl-1 bg-primary text-light");
@@ -119,7 +118,7 @@ function clearDisplayedWeatherInfo() {
   $("#card-deck-title").remove();
   $(".card-deck").empty();
 }
-
+//function to display city list post search
 function displayCities(citiesList) {
   $("#searched-cities-card").removeClass("hide");
   var count = 0;
