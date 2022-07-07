@@ -27,6 +27,8 @@ THEN I am again presented with current and future conditions for that city
 ## Process
 
 Used Weather API to create a dashboard showing weather in multiple cities
+
+  - JS, Html, CSS used together
  
   - Parameters shown include 
         - Temperature
